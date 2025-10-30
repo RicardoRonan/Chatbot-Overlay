@@ -1,0 +1,14 @@
+[
+  {
+    "id": "default",
+    "name": "Default Assistant",
+    "title": "Assistant",
+    "color": "#111827",
+    "greeting": "Hi there! How can I help?",
+    "model": "openai/gpt-oss-20b",
+    "systemPrompt": "You are a helpful website assistant.",
+    "allowedOrigins": ["*"]
+  }
+]
+
+

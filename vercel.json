@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/widget.js", "dest": "/public/widget.js" },
+    { "src": "/embed(.+)?", "headers": { "Cache-Control": "max-age=0, s-maxage=31536000, immutable" }, "dest": "/public/embed.html" },
+    { "src": "/demo", "dest": "/public/demo.html" }
+  ]
+}
+
+

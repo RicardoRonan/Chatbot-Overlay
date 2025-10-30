@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Chat</title>
+    <link rel="stylesheet" href="/public/embed.css">
+  </head>
+  <body>
+    <div id="app" class="c-frame" aria-live="polite">
+      <header class="c-header">
+        <div class="c-header__title" id="chat-title">Chat</div>
+        <button class="c-header__close" aria-label="Close" id="close-btn">×</button>
+      </header>
+      <main class="c-body" id="messages" role="log"></main>
+      <form class="c-input" id="form">
+        <input id="prompt" type="text" placeholder="Type a message..." autocomplete="off" aria-label="Message" />
+        <button id="send" type="submit" aria-label="Send">Send</button>
+      </form>
+    </div>
+    <script src="/public/embed.js"></script>
+  </body>
+  </html>
+
+
