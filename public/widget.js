@@ -35,11 +35,37 @@
   iframe.style.bottom = '96px';
   iframe.style.width = '360px';
   iframe.style.height = '560px';
+  iframe.style.maxHeight = 'calc(100vh - 112px)';
   iframe.style.border = '0';
   iframe.style.borderRadius = '12px';
   iframe.style.boxShadow = '0 10px 15px -3px rgba(0,0,0,.1), 0 4px 6px -2px rgba(0,0,0,.05)';
   iframe.style.display = 'none';
   iframe.allow = 'clipboard-write;';
+
+  // Adjust iframe position to stay within viewport
+  function adjustIframePosition() {
+    const viewportHeight = window.innerHeight;
+    const iframeHeight = 560;
+    const buttonHeight = 72;
+    const spacing = 16;
+    const minTop = 16; // Minimum distance from top
+    
+    const bottomPosition = buttonHeight + spacing; // 96px (button + spacing)
+    const maxBottom = viewportHeight - minTop; // Maximum bottom position
+    
+    // If iframe would go off the top, adjust bottom position
+    if (iframeHeight + bottomPosition > viewportHeight) {
+      const adjustedBottom = Math.max(minTop, viewportHeight - iframeHeight - spacing);
+      iframe.style.bottom = adjustedBottom + 'px';
+    } else {
+      iframe.style.bottom = bottomPosition + 'px';
+    }
+  }
+
+  // Adjust on window resize
+  window.addEventListener('resize', adjustIframePosition);
+  // Initial adjustment
+  adjustIframePosition();
 
   const srcBase = new URL(currentScript.src, window.location.href);
   // Resolve widget origin to same host root for /embed
@@ -52,6 +78,7 @@
       iframe.style.display = 'none';
       button.setAttribute('aria-expanded', 'false');
     } else {
+      adjustIframePosition(); // Recalculate position before showing
       iframe.style.display = 'block';
       button.setAttribute('aria-expanded', 'true');
     }
