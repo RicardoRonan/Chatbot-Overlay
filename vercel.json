@@ -5,13 +5,14 @@
     { "source": "/widget.js", "destination": "/public/widget.js" },
     { "source": "/embed.css", "destination": "/public/embed.css" },
     { "source": "/embed.js", "destination": "/public/embed.js" },
-    { "source": "/embed(.*)", "destination": "/public/embed.html" },
+    { "source": "/embed", "destination": "/public/embed.html" },
     { "source": "/demo", "destination": "/public/demo.html" },
+    { "source": "/demo.html", "destination": "/public/demo.html" },
     { "source": "/", "destination": "/public/demo.html" }
   ],
   "headers": [
     {
-      "source": "/embed(.*)",
+      "source": "/embed",
       "headers": [
         { "key": "Cache-Control", "value": "max-age=0, s-maxage=31536000, immutable" }
       ]

@@ -47,10 +47,11 @@
     const viewportHeight = window.innerHeight;
     const iframeHeight = 560;
     const buttonHeight = 72;
-    const spacing = 16;
+    const buttonBottom = 16; // Button distance from bottom
+    const spacing = 8; // Spacing between button top and iframe bottom
     const minTop = 16; // Minimum distance from top
     
-    const bottomPosition = buttonHeight + spacing; // 96px (button + spacing)
+    const bottomPosition = buttonBottom + buttonHeight + spacing; // 16 + 72 + 8 = 96px
     const maxBottom = viewportHeight - minTop; // Maximum bottom position
     
     // If iframe would go off the top, adjust bottom position
